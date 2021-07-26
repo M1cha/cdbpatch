@@ -1,7 +1,7 @@
 # cdbpatch
 
 This allows patching a `compile_commands.json` file which can be necessary when
-cross-compiling.
+using `clang-tidy` in a cross-compiler environment.
 
 Features:
 
