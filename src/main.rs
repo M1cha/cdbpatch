@@ -186,7 +186,7 @@ impl ToolchainInfoCache {
     }
 }
 
-/// escape command for copilation database
+/// escape command for compilation database
 /// - only " and \ are special
 /// - add quotes if there are spaces or escape sequences
 fn cdb_escape(input: &str) -> String {
