@@ -172,7 +172,6 @@ impl ToolchainInfoCache {
         }
 
         // the includes start with a space, extract them
-        //let output = duct::cmd(&args[0], &args[1..]).stderr_capture().run()?;
         let output = std::str::from_utf8(&output.stderr)?.trim();
         let includes: Vec<_> = output
             .lines()
