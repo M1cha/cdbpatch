@@ -7,7 +7,6 @@ license = "MIT"
 [dependencies]
 anyhow = "1.0"
 clap = { git = "https://github.com/clap-rs/clap.git" }
-duct = "0.13"
 lazy_static = "1.4"
 rayon = "1.5"
 regex = "1"
