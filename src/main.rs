@@ -73,7 +73,7 @@ struct ToolchainInfoCache {
 impl ToolchainInfoCache {
     fn add_toolchain_includes_(command: &mut Vec<String>, includes: &[String]) {
         for include in includes {
-            command.insert(1, format!("-isystem{}", include));
+            command.insert(1, format!("-isystem{include}"));
         }
     }
 
@@ -144,7 +144,7 @@ impl ToolchainInfoCache {
 
         // check cache
         if let Some(includes) = self.hm.get(&args) {
-            Self::add_toolchain_includes_(command, &includes);
+            Self::add_toolchain_includes_(command, includes);
             return Ok(());
         }
 
@@ -175,7 +175,7 @@ impl ToolchainInfoCache {
         let output = std::str::from_utf8(&output.stderr)?.trim();
         let includes: Vec<_> = output
             .lines()
-            .filter_map(|s| s.strip_prefix(" ").map(|s| s.to_string()))
+            .filter_map(|s| s.strip_prefix(' ').map(|s| s.to_string()))
             .collect();
 
         Self::add_toolchain_includes_(command, &includes);
@@ -199,7 +199,7 @@ fn cdb_escape(input: &str) -> String {
 
     let output = ESCAPE_PATTERN.replace_all(input, "\\$1").to_string();
     if output != input || output.contains(' ') {
-        return format!("\"{}\"", output);
+        return format!("\"{output}\"");
     }
 
     output
