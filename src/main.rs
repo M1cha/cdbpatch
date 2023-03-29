@@ -49,6 +49,7 @@ struct CdbEntry {
     directory: String,
     file: String,
     command: String,
+    output: Option<String>,
 }
 
 enum Language {
